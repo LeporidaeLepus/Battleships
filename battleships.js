@@ -94,7 +94,7 @@ function clickSquare(e){
         var r=e.target.id.substring(6,7);
         var c=e.target.id.substring(7,8);
 
-        if(clickCount<times){
+        if(clickCount<times&&success!=number){
             if((e.target.style.background!='red'&&e.target.style.background!='blue')){
                 clickCount++;
                 attacks.push([r,c]);
@@ -116,6 +116,9 @@ function clickSquare(e){
             else{
                 alert('You have already fired here.')
             }
+        }
+        else if(success==number){
+            alert("All enemy's ships have been sunk!");
         }
         else{
             var result=damagedOrSunk(board,attacks);
