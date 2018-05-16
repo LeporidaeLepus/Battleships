@@ -3,7 +3,10 @@ var col=Math.floor(Math.random()*6+5);
 var size=50;
 
 var playingBoard=document.getElementById("playingboard");
-var reSetBut=document.getElementById("reSet");
+var reSetBut=document.getElementById("but");
+
+playingBoard.style.height=row*size+'px';
+playingBoard.style.width=col*size+'px';
 
 for(i=0;i<row;i++){
     for(j=0;j<col;j++){
@@ -56,7 +59,7 @@ var clickCount=0;
 var success=0;
 
 playingBoard.addEventListener("click",clickSquare,false);
-reSetBut,addEventListener("click",reSet,false);
+reSetBut.addEventListener("click",reSet,false);
 
 
 
@@ -91,24 +94,22 @@ function clickSquare(e){
         var r=e.target.id.substring(6,7);
         var c=e.target.id.substring(7,8);
 
-        if(clickCount<=times){
+        if(clickCount<times){
             if((e.target.style.background!='red'&&e.target.style.background!='blue')){
                 clickCount++;
                 attacks.push([r,c]);
     
                 if(board[r][c]==0){
                     e.target.style.background='blue';
-                    //board[r][c]=4;
                 }   
                 else{
                     e.target.style.background='red';
-                    //board[r][c]=4;
                     success++;
 
                     if (success==number){
                         var result=damagedOrSunk (board, attacks);
                         alert("Congratulation!All enemy's ships have been sunk!\nsunk="+result.sunk+" damaged="+result.damaged+" notTouched="+result.notTouched+"\npoints="+result.points);
-                        reSet();
+                        //reSet();
                     }
                 }
             }
@@ -119,7 +120,7 @@ function clickSquare(e){
         else{
             var result=damagedOrSunk(board,attacks);
             alert("GameOver!\nsunk="+result.sunk+" damaged="+result.damaged+" notTouched="+result.notTouched+"\npoints="+result.points);
-            reSet();
+            //reSet();
         }
     }
     e.stopPropagation();
@@ -159,6 +160,7 @@ function damagedOrSunk (board, attacks){
         }
         return output;
 }
+
 
 //刷新当前页面
 function reSet(){
