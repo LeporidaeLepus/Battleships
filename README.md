@@ -1,6 +1,6 @@
 # Battleships
 
-This is a webpage game called Battleship used HTML, CSS and JavaCsript. If you want to try this game, click [here](https://leporidaelepus.github.io/Battleships/). 
+This is a webpage game called Battleship written by HTML, CSS and JavaCsript. If you want to try this game, click [here](https://leporidaelepus.github.io/Battleships/). 
 
 - To win the game, click the board to fire the enemy's ships in limit times (which is half the number of boards). 
   - After clicking, the selected board will change its color. If the board is part of a boat, it will change to orange, else it will change to dark green.
